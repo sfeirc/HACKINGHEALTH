@@ -1,0 +1,31 @@
+# Run from repo root: docker compose up
+# Optional: create .env with OPENAI_API_KEY=sk-... for real explanations
+services:
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
+  api:
+    build:
+      context: .
+      dockerfile: infra/docker/Dockerfile.api
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: 3000
+      REDIS_URL: redis://redis:6379
+      ML_SERVICE_URL: http://ml:8000
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+    depends_on:
+      - redis
+      - ml
+
+  ml:
+    build:
+      context: .
+      dockerfile: infra/docker/Dockerfile.ml
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
