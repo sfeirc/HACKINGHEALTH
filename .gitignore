@@ -11,6 +11,9 @@ dist/
 # API storage (submitted photos + submissions; created at runtime)
 services/api/storage/
 
+# Redis
+dump.rdb
+
 # Miscellaneous
 *.class
 *.log
