@@ -1,7 +1,5 @@
 # Dent ta Maison
 
-**Crédit : Clovis SFEIR**
-
 Application mobile et backend pour un contrôle bucco-dentaire rapide : prise de photo guidée, contrôle qualité, pré-dépistage des caries et résultat en langage clair. Respect de la vie privée (pas de compte requis).
 
 ## Stack
@@ -86,10 +84,6 @@ scripts/              # run-api-dev.sh, run-on-iphone.sh, tests
 - **API :** `cd services/api && npm test`
 - **ML :** `cd services/ml && PYTHONPATH=. pytest tests/ -v`
 - **E2E :** `./scripts/test-e2e.sh` (nécessite Redis + API + ML)
-
-## Licence
-
-Voir le fichier de licence du dépôt.
 
 ---
 
